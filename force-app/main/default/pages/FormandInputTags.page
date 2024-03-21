@@ -1,0 +1,18 @@
+<apex:page >
+    <apex:form >
+    <apex:pageBlock title="Please fill the Form">
+    <apex:OutputLabel value="Enter Name:" for="Name"></apex:OutputLabel>
+        <apex:InputText id="Name"/><br/><br/>
+    <apex:OutputLabel value="Enter Age:" for="Age"></apex:OutputLabel>
+        <apex:InputText id="Age"/><br/><br/>
+      Enter Username: <apex:InputText id="Username"/><br/><br/>
+      Enter Password: <apex:InputSecret id="Password"/><br/><br/>
+      Enter Coverletter: <apex:InputTextarea id="Coverletter"/><br/><br/>
+      Enter Employment Status: <apex:InputCheckbox id="Employment"/><br/><br/>
+      <apex:OutputLink value="www.salesforce.com" >Salesforce</apex:OutputLink>
+      <apex:pageBlockButtons >
+      <apex:commandButton value="Save"/>
+      </apex:pageBlockButtons>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,18 @@
+<apex:page controller="CalculateController">
+    <apex:form >
+    	<apex:inputText value="{!num1}"/>
+        <apex:inputText value="{!num2}"/>
+        
+        <apex:selectRadio value="{!operation}">
+            <apex:selectOption itemValue="+" itemLabel="Addition"></apex:selectOption>
+            <apex:selectOption itemValue="-" itemLabel="Subtraction"></apex:selectOption>	
+            <apex:selectOption itemValue="*" itemLabel="Multiplication"></apex:selectOption>	
+            <apex:selectOption itemValue="/" itemLabel="Division"></apex:selectOption>	
+        </apex:selectRadio>
+        <apex:inputText value="{!result}"/>
+        
+        <apex:commandButton action="{!calc}" value="Show Result Same Page"/>
+        <apex:commandButton action="{!calcnext}" value="Show Result Next Page"/>
+    
+    </apex:form>
+</apex:page>

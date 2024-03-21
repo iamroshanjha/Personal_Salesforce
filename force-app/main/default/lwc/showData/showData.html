@@ -1,0 +1,38 @@
+<template>
+
+    <div>Subscribe and Show LMS Data Here</div>
+     <!-- <template if:true={data.length}>
+        <lightning-datatable 
+            key-field="id" 
+            data={data} 
+            columns={columns} 
+            hide-checkbox-column=true 
+        >
+        </lightning-datatable>
+    </template> -->
+
+
+    <template if:true={data.length}>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Description</th>
+            </thead>
+            <tbody>
+                <template for:each={data} for:item="dat">
+                    <tr key={dat.id}>
+                        <td>{dat.Name}</td>
+                        <td>{dat.Description}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+        <!-- <ol>
+            <template for:each={data} for:item="dat">
+                <li key={dat.id}>{dat.Name} - {dat.Description}</li>
+            </template>
+        </ol> -->
+
+    </template>
+</template>

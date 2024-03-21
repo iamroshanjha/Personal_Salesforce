@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-text-align_center slds-text-heading_large slds-var-p-around_medium">Eazzy Movie</div>
+    <div class="slds-box slds-theme_default">
+        <div class="slds-text-align_center slds-text-heading_medium slds-var-p-around_medium">Movie Feedback</div>
+        <lightning-input type="textarea" label="What was your favourite part?" name="Part" onchange={getFeedData}></lightning-input>
+        <lightning-input type="number" min=1 max=5 name="Rating" label="Overall Rating out of 5" onchange={getFeedData} required></lightning-input>
+        <lightning-input type="textarea" name="Feedback"  onchange={getFeedData} label="Overall Feedback" required></lightning-input>                    
+        <lightning-radio-group name="Recommend"
+                          label="Would you recommend the movie?"
+                          options={options}
+                          value={value}
+                          onchange={getFeedData}
+                          type="radio">
+        </lightning-radio-group>
+        <div class="slds-var-m-around_large">
+            <lightning-button disabled={noShowSubmitButton} variant="brand" label="Submit"  onclick={goSubmit}></lightning-button>
+        </div>
+    </div>
+    <div if:true={isLoaded}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </div>
+    <div if:true={openModal}>
+        <c-modal modal-data={modalData}></c-modal>
+    </div>
+</template>

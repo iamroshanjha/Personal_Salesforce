@@ -1,0 +1,39 @@
+<template>
+    <template if:true={products}>
+    <table class="slds-table slds-table_bordered slds-border_left slds-border_right">
+        <template iterator:it={products}>
+            <thead key={it.value.Id} if:true={it.first}>
+                <tr class="slds-line-height_reset">
+                    <template for:each={it.value} for:item="row">
+                        <th key={row.id} class="" scope="col">
+                            <div class="slds-truncate">{row}</div>
+                        </th>
+                    </template>
+</tr>
+</thead>
+
+<tbody key={it.value.Id} if:false={it.first}>
+    <tr class="slds-line-height_reset">
+        <template for:each={it.value} for:item="row">
+                        <th key={row.id} class="" scope="col">
+                            <div class="slds-truncate">{row}</div>
+                        </th>
+                    </template>
+    </tr>
+</tbody>
+</template>
+</table>
+
+
+
+</template>
+<lightning-datatable key-field="Id" data={rowdata} columns={columdata}>
+</lightning-datatable>
+<template if:true={error}>
+    <lightning-card title="Alert">
+        
+            {error}
+              
+      </lightning-card>
+</template>
+</template>

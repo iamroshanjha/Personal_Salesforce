@@ -1,0 +1,35 @@
+<template>
+    <template if:true={showTheatreMovieTimings}>
+        <template if:true={theatresScreenTimings}>
+            <div class="slds-box slds-theme_default">
+                <lightning-button-icon icon-name="utility:back" variant="default" onclick={goToTheatre}
+                    alternative-text="Go to Theatres">
+                </lightning-button-icon>
+                <div class="slds-text-align_center slds-text-heading_large slds-var-p-around_medium">Screens and timings
+                    Available
+                    for {movieName} at {theatreName}
+                </div>
+                <template for:each={theatresScreenTimings} for:item=theatre>
+                    <div class="slds-grid slds-gutters slds-var-p-around_medium slds-border_bottom" key={theatre.Id}>
+                        <div class="slds-col slds-size_3-of-12 slds-text-heading_large slds-align_absolute-center">
+                            {theatre.Screen_Name}
+                        </div>
+                        <div class="slds-col slds-size_2-of-12 slds-text-heading_medium slds-align_absolute-center">
+                            <lightning-formatted-date-time value={theatre.Movie_Timings} year="numeric" month="short"
+                                day="2-digit" hour="numeric" weekday="long"></lightning-formatted-date-time>
+                        </div>
+                        <div class="slds-col slds-size_2-of-12 slds-align_absolute-center">
+                            <lightning-button variant="brand" data-movie-theatre={theatre.MovieTheatreId} value={theatre.Screen} data-name={theatre.Screen_Name} data-screen-time={theatre.Movie_Timings}
+                                label="Select" onclick={selectSeats}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </template>
+    <template if:true={showScreenSeats}>
+        <c-theatre-seat-selection onshowscreentime={showScreenTime} movie-theatre-id={movieTheatreId} movie-id={movieId} theatre-id={theatreId} movie-name={movieName} theatre-name={theatreName} 
+        screen-name={screenName} screen-id={screenId} screen-time={screenTime}></c-theatre-seat-selection>
+    </template>
+</template>

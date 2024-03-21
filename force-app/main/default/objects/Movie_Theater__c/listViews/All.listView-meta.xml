@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Movie__c</columns>
+    <columns>Movie_Timings__c</columns>
+    <columns>Screen__c</columns>
+    <columns>Seat_A_1__c</columns>
+    <columns>Seat_A_2__c</columns>
+    <columns>Seat_A_3__c</columns>
+    <columns>Seat_B_1__c</columns>
+    <columns>Seat_B_2__c</columns>
+    <columns>Seat_B_3__c</columns>
+    <columns>Seat_C_1__c</columns>
+    <columns>Seat_C_2__c</columns>
+    <columns>Seat_C_3__c</columns>
+    <columns>Seat_D_1__c</columns>
+    <columns>Seat_D_2__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

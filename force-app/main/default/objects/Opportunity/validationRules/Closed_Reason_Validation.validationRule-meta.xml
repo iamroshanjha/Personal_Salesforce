@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Reason_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF(
+OR(
+ISPICKVAL(StageName,&quot;Closed Won&quot;),
+ISPICKVAL(StageName,&quot;Closed Lost&quot;)
+)
+,ISBLANK(Closed_Reason__c),NULL
+)</errorConditionFormula>
+    <errorDisplayField>Closed_Reason__c</errorDisplayField>
+    <errorMessage>Closed Reason should be entered for Closed Won / Closed Lost Stage</errorMessage>
+</ValidationRule>

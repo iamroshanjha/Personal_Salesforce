@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Add_Line_Item_and_Update_Stock_Qty</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Add Line Item and Update Stock Qty</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/flow/Add_Line_Item_from_Invoice_and_Update_Stock_Quantity
+?vInvoiceId={!Invoice__c.Id}&amp;retURL=/{!Invoice__c.Id}</url>
+</WebLink>

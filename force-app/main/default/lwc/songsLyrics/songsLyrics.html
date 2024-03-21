@@ -1,0 +1,23 @@
+<template>
+    <div class="slds-text-align_center slds-box slds-theme_default">
+        <div class="slds-text-heading_large slds-var-p-around_medium">Enter Artist and Title of the Song</div>
+        <lightning-input type="text" onchange={getArtist} placeholder="Enter Artist Name"></lightning-input>
+        <lightning-input type="text" onchange={getTitle} placeholder="Enter Song Title"></lightning-input>
+        <div class="slds-var-m-around_large">
+            <lightning-button  variant="brand" label="Find Lyrics"  onclick={findLyrics}></lightning-button>
+        </div>
+    </div>
+    <div class="slds-text-align_center slds-box slds-theme_default">
+        <div if:true={isLoaded}>
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+        <template if:true={result}>
+            <div class="slds-text-heading_large slds-var-p-around_medium">Lyrics for the Song {title}, Sung By {artist}</div>
+            <div class="slds-text-heading_small slds-var-p-around_medium">{result}</div>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-heading_large slds-var-p-around_medium">Error Occured while finding Lyrics for the Song {title}, Sung By {artist}</div>
+            <div class="slds-text-heading_small slds-var-p-around_medium">{error}</div>
+        </template>
+    </div>
+</template>

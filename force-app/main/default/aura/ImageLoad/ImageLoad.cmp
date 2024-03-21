@@ -1,0 +1,3 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+	<img src="{!$Resource.sfdc_icon}" height="30" width="30"/>
+</aura:component>

@@ -1,0 +1,11 @@
+<apex:page Controller="CustomerController">
+  <apex:form >
+      <apex:pageBlock title="Customer Details">
+          <apex:pageBlockSection >
+              <apex:inputField value="{!Customer.name}"/>
+              <apex:inputField value="{!Customer.APEX_Customer_Description__c}"/>
+              <apex:inputField value="{!Customer.APEX_Active__c}"/>
+          </apex:pageBlockSection>
+     </apex:pageBlock>
+ </apex:form>
+</apex:page>

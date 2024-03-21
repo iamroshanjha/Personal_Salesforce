@@ -1,0 +1,9 @@
+<apex:page standardController="Patients__c" recordSetVar="Patients">
+    <apex:repeat value="{!Patients}" var="patient">
+        <li>
+        {!patient.Patient_City__c}
+        </li>
+    </apex:repeat>
+    
+    
+</apex:page>

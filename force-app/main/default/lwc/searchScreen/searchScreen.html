@@ -1,0 +1,68 @@
+<template>
+    <template if:false={showUserScreen}>
+        <div class="slds-text-align_center slds-text-heading_large slds-var-p-around_medium">Eazzy Movie</div>
+        <div class="slds-text-align_center slds-box slds-theme_default">
+            <div class="slds-text-heading_medium slds-var-p-around_medium">Seach Movies</div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning-input variant="label-hidden" class="data"  type="text" placeholder="Search Movie with…"></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-button  variant="brand" label="Search"  onclick={search}></lightning-button>
+                </div>   
+            </div>
+        </div>
+        <div if:true={isLoaded}>
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    
+        <template if:true={result}>
+            <div class="slds-text-align_center slds-box slds-theme_default">
+                <template if:true={resultValue}>
+                    <div class="slds-grid slds-gutters slds-wrap">
+                        <template for:each={result.Search} for:item="data">
+                            <div key={data.Id} class="slds-col slds-size_1-of-3">
+                                <lightning-tile class="slds-var-p-top_small slds-border_top slds-border_bottom slds-border_right slds-border_left">
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-align_absolute-center">
+                                            <lightning-input
+                                                checked={data.radio}
+                                                type="radio" 
+                                                data-value={data.imdbID} 
+                                                onchange={handleChangeEvent}>
+                                            </lightning-input>
+                                        </div>
+                                        <div class="slds-col">
+                                            <img src={data.Poster} alt={data.Title} class="image" title={data.Title}/>
+                                        </div>
+                                    </div>
+                                    <p class="slds-text-heading_medium slds-var-p-top_small" title={data.Title}>{data.Title}</p>
+                                    <p class="slds-text-heading_small" title={data.Year}>Year : {data.Year}</p>
+                                    <p class="slds-text-heading_small" title={data.Type}>Type : {data.Type}</p>
+                                    <p class="slds-text-heading_small slds-var-p-bottom_medium" title={data.imdbID}>IMDB ID : {data.imdbID}</p>
+                                </lightning-tile>
+                            </div>    
+                        </template>
+                    </div>
+                    <div class="slds-col">
+                        <lightning-button disabled={noShowNextButton} variant="brand" label="Next"  onclick={goNext}></lightning-button>
+                    </div>  
+                </template>
+                <template if:false={resultValue}>
+                    <div class="slds-text-heading_small slds-var-p-around_medium">{result.Error}</div>
+                </template>
+            </div>
+        </template>
+        
+        <template if:true={error}>
+            <div class="slds-text-align_center slds-box slds-theme_default">
+                <div class="slds-text-heading_small slds-var-p-around_medium">{error}</div>
+            </div>
+        </template>
+    </template>
+
+    <template if:true={showUserScreen}>
+        <c-user-screen request-data={requestData}></c-user-screen>
+    </template>
+    
+</template>

@@ -1,0 +1,18 @@
+<apex:page controller="LookupHierarchy">
+  <apex:form >
+  <apex:pageBlock >
+  <apex:pageBlockTable value="{!Account}" var="p">
+  <apex:column headerValue="Parent name" value="{!p.name}"/>
+  <apex:column headerValue="Child Names">
+  <apex:pageBlockTable value="{!p.contacts}" var="c">
+  <apex:column value="{!c.Lastname}"/>
+  <apex:column value="{!c.phone}" />
+  </apex:pageBlockTable>
+  </apex:column>
+  </apex:pageBlockTable>
+ 
+ 
+  </apex:pageBlock>
+  </apex:form>
+  
+</apex:page>

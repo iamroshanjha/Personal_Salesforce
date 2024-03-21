@@ -1,0 +1,13 @@
+<apex:page controller="download" contentType="{!IF(isExport = true, 'application/vnd.ms-excel#report.xls', '')}" >
+<apex:form >
+<apex:commandbutton id="button" value="Export" action="{!getexport}" reRender=""/>
+    <apex:pageBlock title="Contacts">
+        <apex:pageBlockTable value="{!contacts}" var="contact">
+            <apex:column value="{!contact.firstname}"/>
+            <apex:column value="{!contact.lastname}"/>
+            <apex:column value="{!contact.email}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

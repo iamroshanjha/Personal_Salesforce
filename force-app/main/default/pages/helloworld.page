@@ -1,0 +1,21 @@
+<apex:page >
+<apex:form >
+  <apex:PageBlock title="FirtsPageBlock">
+  <apex:pageMessage strength="3" severity="warning" summary="Warning"></apex:pageMessage>
+      <apex:pageBlockSection title="FirstPageBlockSection">
+          <apex:PageBlockSectionItem >Roshan</apex:PageBlockSectionItem>
+          <apex:PageBlockSectionItem >Kumar</apex:PageBlockSectionItem>
+          <apex:PageBlockSectionItem >Jha</apex:PageBlockSectionItem>
+      </apex:pageBlockSection>
+      <apex:pageBlockButtons >
+      <apex:commandButton value="Submit"/>
+      <apex:commandButton value="Cancel"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="SecondPageBlockSection">
+          <apex:PageBlockSectionItem >Jha</apex:PageBlockSectionItem>
+          <apex:PageBlockSectionItem >Kumar</apex:PageBlockSectionItem>
+          <apex:PageBlockSectionItem >Roshan</apex:PageBlockSectionItem>
+      </apex:pageBlockSection>
+  </apex:PageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,12 @@
+<apex:page controller="QuizControlller">
+  
+  <apex:form >
+      <apex:selectList value="{!query}" size="1">
+          <apex:selectOptions value="{!questionList}"></apex:selectOptions> 
+      </apex:selectList>
+      <apex:inputText value="{!answer}"/>
+      <apex:commandButton action="{!validate}" value="Show Result on Same Page"/>
+      <apex:commandButton action="{!validateNext}" value="Show Result on Next Page"/>
+      <apex:outputText value="{!result}"/>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Staus_Rule</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(TEXT(PRIORVALUE(Status__c)) = &quot;Promoted to Next Class&quot;,ISCHANGED(Status__c),NULL)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Promoted to Next Class can&apos;t be returned to New</errorMessage>
+</ValidationRule>

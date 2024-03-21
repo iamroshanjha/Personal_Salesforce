@@ -1,0 +1,68 @@
+<template>
+    <!-- <div class="slds-text-align_center">
+        <span class="slds-avatar slds-avatar_circle slds-avatar--x-large">
+            <img src="https://cdn.flickeringmyth.com/wp-content/uploads/2020/03/chuck-norris-600x389.jpg"
+                alt="Chuck Norris" />
+        </span>
+    </div> -->
+    <template if:true={randomJokes}>
+        <div class="slds-box slds-theme_default">
+            <div class="slds-text-align_center slds-text-heading_large slds-var-p-around_medium"><b>Chuck
+                    Norris's Jokes</b></div>
+            <div if:true={isLoaded}>
+                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+            </div>
+            <div class="slds-text-align_center slds-text-heading_large slds-var-p-around_medium">{randomJokes.value}
+            </div>
+            <div class="slds-text-align_center slds-var-p-around_medium">
+                <lightning-button class="slds-var-p-around_medium" variant="brand" label="Next Joke" title="Next Joke"
+                    onclick={nextJoke}>
+                </lightning-button>
+                <lightning-button class="slds-var-p-around_medium" variant="brand" label="Jokes Categories"
+                    title="Jokes Categories" onclick={categoryJokes}>
+                </lightning-button>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={showCategoryModal}>
+        <div class="demo-only">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-more"
+                            title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close" size="medium">
+                            </lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Chuck Norris's Jokes
+                            Categories</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <center>
+                            <h1><b>Select any Category</b></h1>
+                        </center>
+                        <template if:true={jokesCategories}>
+                            <template for:each={jokesCategories} for:item=jokeCategory>
+                                <lightning-button class="slds-var-p-around_medium" key={jokeCategory.Id} variant="brand"
+                                    value={jokeCategory} label={jokeCategory} onclick={selectCategory}>
+                                </lightning-button>
+                            </template>
+                        </template>
+                    </div>
+                    <!-- <footer class="slds-modal__footer">
+                        <lightning-button label="Cancel" variant="neutral" onclick={closeModal}></lightning-button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <lightning-button label="Save" variant="brand" onclick={saveMethod}></lightning-button>
+                    </footer> -->
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </template>
+
+    <template if:true={error}>
+        <div class="slds-text-align_center slds-text-heading_large slds-var-p-around_medium">{error}</div>
+    </template>
+</template>

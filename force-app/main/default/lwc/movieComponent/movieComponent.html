@@ -1,0 +1,44 @@
+<template>
+    <template if:true={showMovie}>
+        <template if:true={movies}>
+            <div class="slds-box slds-theme_default">
+                <div class="slds-text-align_center slds-text-heading_large slds-var-p-around_medium">Latest Shows</div>
+                <template for:each={movies} for:item=movie>
+                    <div class="slds-grid slds-gutters slds-var-p-around_medium slds-border_bottom" key={movie.Id}>
+                        <div class="slds-col slds-size_1-of-4 slds-align_absolute-center">
+                            <span class="slds-avatar slds-avatar--large">
+                                <img src={movie.Movie_Image__c}>
+                            </span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-4 slds-text-heading_large slds-align_absolute-center">
+                            {movie.Name}
+                        </div>
+                        <div class="slds-col slds-size_1-of-4 slds-text-heading_meduim slds-align_absolute-center">
+                            {movie.Movie_Description__c}
+                        </div>
+                        <div class="slds-col slds-size_1-of-4 slds-align_absolute-center">
+                            <lightning-button variant="brand" data-name={movie.Name} value={movie.Id} label="Book Movie"
+                                onclick={bookMovie}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+
+           
+        </template>
+    </template>
+    <template if:true={showTheatre}>
+        <c-theatre-component onshowmovies={showMovieSection} movie-id={movieId} movie-name={movieName}></c-theatre-component>
+    </template>
+
+    <div class="slds-box slds-theme_default">
+        <div class="slds-text-align_center slds-text-heading_large slds-var-p-around_medium">Leads</div>
+        
+            {name}
+            {id}
+            {source}
+        
+    </div>
+</template>

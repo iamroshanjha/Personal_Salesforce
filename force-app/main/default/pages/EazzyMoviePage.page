@@ -1,0 +1,14 @@
+<apex:page showHeader="false" standardStylesheets="false">
+    <apex:includeLightning />
+    <div id="EazzyMovieId" />
+    <script>
+        $Lightning.use("c:EazzyMovieApp", function() {
+            $Lightning.createComponent(
+                "c:searchScreen",
+                {},
+                "EazzyMovieId",
+                function(cmp) {}
+            );
+        });
+    </script>
+</apex:page>

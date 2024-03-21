@@ -1,0 +1,27 @@
+<apex:page controller="SFDCTask">
+    <apex:form id="form1">
+        <apex:pageblock >
+            <apex:pageBlockSection >
+                <apex:inputText value="{!Email}" label="Email" />
+                <apex:commandButton action="{!Submit}" value="Submit"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+            	<apex:outputPanel rendered="{!IF(lstLeads!=null, true, false)}">
+                	<apex:pageBlocktable value="{!lstLeads}" var="records"> 
+                    	<apex:column value="{!records.FirstName}" headerValue="Firstname"/>
+                    	<apex:column value="{!records.LastName}" headerValue="LastName"/>
+                    	<apex:column value="{!records.Phone}" headerValue="Phone"/>
+                    	<!--<apex:column value="{!records.Address}" headerValue="Address"/>-->
+                    	<apex:column value="{!records.Email}" headerValue="Email"/>
+                    	<apex:column >
+                            <apex:commandButton action="{!Convert}" value="Convert" reRender="form1">
+								<apex:param name="leadsId" value="{!records.Id}" assignTo="{!leadsId}"/>
+             				</apex:commandButton>
+                    	</apex:column>
+                	</apex:pageBlocktable>
+            	</apex:outputPanel>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+    <apex:pageMessages ></apex:pageMessages>
+ </apex:page>

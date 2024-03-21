@@ -1,0 +1,16 @@
+<template>
+    <template if:true={dataOpp} >
+        <div style="height: 300px;">
+            <template for:each={dataOpp} for:item="da">
+                {da.Name}
+            </template>
+            <lightning-datatable
+                    key-field="id"
+                    data={dataOpp}
+                    columns={columns}>
+            </lightning-datatable>
+        </div>    
+
+    </template>
+    
+</template>

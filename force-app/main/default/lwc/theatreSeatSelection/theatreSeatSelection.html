@@ -1,0 +1,83 @@
+<template>
+    <template if:true={showSeatsAvailable}>
+        <template if:true={seatsAvailable}>
+            <div class="slds-box slds-theme_default">
+                <lightning-button-icon icon-name="utility:back" variant="default" onclick={goToScreensTimings}
+                    alternative-text="Go to Date and Screens">
+                </lightning-button-icon>
+                <div class="slds-text-align_center slds-text-heading_large slds-var-p-around_medium">Select seats
+                    for the {movieName} in {theatreName}, Screen : {screenName} on
+                    <lightning-formatted-date-time value={screenTime} year="numeric" month="short" day="2-digit"
+                        hour="numeric" weekday="long"></lightning-formatted-date-time>
+                </div>
+                <div class="slds-col slds-size_12-of-12 slds-align_absolute-center">
+                    <div class="slds-col slds-align_absolute-center">
+                        <template if:true={seatsAvailable.Seat_A_1}>
+                            <lightning-button variant="brand" label="A1" disabled></lightning-button>
+                        </template>
+                        <template if:false={seatsAvailable.Seat_A_1}>
+                            <lightning-button variant="default" label="A1"></lightning-button>
+                        </template>
+                        <template if:true={seatsAvailable.Seat_A_2}>
+                            <lightning-button variant="brand" label="A2" disabled></lightning-button>
+                        </template>
+                        <template if:false={seatsAvailable.Seat_A_2}>
+                            <lightning-button variant="default" label="A2"></lightning-button>
+                        </template>
+                        <template if:true={seatsAvailable.Seat_A_3}>
+                            <lightning-button variant="brand" label="A3" disabled></lightning-button>
+                        </template>
+                        <template if:false={seatsAvailable.Seat_A_3}>
+                            <lightning-button variant="default" label="A3"></lightning-button>
+                        </template>
+                        <template if:true={seatsAvailable.Seat_A_4}>
+                            <lightning-button variant="brand" label="A4" disabled></lightning-button>
+                        </template>
+                        <template if:false={seatsAvailable.Seat_A_4}>
+                            <lightning-button variant="default" label="A4"></lightning-button>
+                        </template>
+                        <template if:true={seatsAvailable.Seat_A_5}>
+                            <lightning-button variant="brand" label="A5" disabled></lightning-button>
+                        </template>
+                        <template if:false={seatsAvailable.Seat_A_5}>
+                            <lightning-button variant="default" label="A5"></lightning-button>
+                        </template>
+                    </div>
+                    <div class="slds-col slds-align_absolute-center">
+                        <template if:true={seatsAvailable.Seat_B_1}>
+                            <lightning-button variant="brand" label="B1" disabled></lightning-button>
+                        </template>
+                        <template if:false={seatsAvailable.Seat_B_1}>
+                            <lightning-button variant="default" label="B1"></lightning-button>
+                        </template>
+                        <template if:true={seatsAvailable.Seat_B_2}>
+                            <lightning-button variant="brand" label="B2" disabled></lightning-button>
+                        </template>
+                        <template if:false={seatsAvailable.Seat_B_2}>
+                            <lightning-button variant="default" label="B2"></lightning-button>
+                        </template>
+                        <template if:true={seatsAvailable.Seat_B_3}>
+                            <lightning-button variant="brand" label="B3" disabled></lightning-button>
+                        </template>
+                        <template if:false={seatsAvailable.Seat_B_3}>
+                            <lightning-button variant="default" label="B3"></lightning-button>
+                        </template>
+                        <template if:true={seatsAvailable.Seat_B_4}>
+                            <lightning-button variant="brand" label="B4" disabled></lightning-button>
+                        </template>
+                        <template if:false={seatsAvailable.Seat_B_4}>
+                            <lightning-button variant="default" label="B4"></lightning-button>
+                        </template>
+                        <template if:true={seatsAvailable.Seat_B_5}>
+                            <lightning-button variant="brand" label="B5" disabled></lightning-button>
+                        </template>
+                        <template if:false={seatsAvailable.Seat_B_5}>
+                            <lightning-button variant="default" label="B5"></lightning-button>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </template>
+
+</template>

@@ -1,0 +1,132 @@
+<template>
+        <template if:true={user}>
+            <div class="slds-text-align_center slds-box slds-theme_default">
+                <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                    <img alt={user.Name} src={user.MediumPhotoUrl} title={user.Name}/>
+                  </span>
+                <div class="slds-text-heading_large slds-var-p-around_medium">{user.Title}. {user.Name}</div>
+
+                <lightning-accordion allow-multiple-sections-open>
+                                         <!-- active-section-name={activeSections}> -->
+                        <lightning-accordion-section name="Personal Details" label="Personal Details">
+                            <div class="slds-text-heading_medium slds-var-p-around_medium">
+                                <table class="slds-table">
+                                    <tr>
+                                        <th>
+                                            <div>Username</div>
+                                        </th>
+                                        <td>
+                                            <div>{user.Username}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div>Email</div>
+                                        </th>
+                                        <td>
+                                            <div>{user.Email}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div>Phone</div>
+                                        </th>
+                                        <td>
+                                            <div>{user.MobilePhone}</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </lightning-accordion-section>
+                
+                        <lightning-accordion-section name="Residence Details" label="Residence Details">
+                            <div class="slds-text-heading_medium slds-var-p-around_medium">
+                                <table class="slds-table">
+                                    <tr>
+                                        <th>
+                                            <div>Address</div>
+                                        </th>
+                                        <td>
+                                            <div>{user.Address}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div>City</div>
+                                        </th>
+                                        <td>
+                                            <div>{user.City}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div>PostalCode</div>
+                                        </th>
+                                        <td>
+                                            <div>{user.PostalCode}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div>State</div>
+                                        </th>
+                                        <td>
+                                            <div>{user.State}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div>Country</div>
+                                        </th>
+                                        <td>
+                                            <div>{user.Country}</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </lightning-accordion-section>
+                        <lightning-accordion-section name="Comapany Details" label="Comapany Details">
+                            <div class="slds-text-heading_medium slds-var-p-around_medium">
+                                <table class="slds-table">
+                                    <tr>
+                                        <th>
+                                            <div>Company Name</div>
+                                        </th>
+                                        <td>
+                                            <div>{user.CompanyName}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div>Profile</div>
+                                        </th>
+                                        <td>
+                                            <div>{user.ProfileName}</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </lightning-accordion-section>
+                        <lightning-accordion-section name="Other Details" label="Other Details">
+                            <div class="slds-text-heading_medium slds-var-p-around_medium">
+                                <table class="slds-table">
+                                    <tr>
+                                        <th>
+                                            <div>Joined Salesforce On</div>
+                                        </th>
+                                        <td>
+                                            <div><lightning-formatted-date-time value={user.CreatedDate} time-zone="UTC"></lightning-formatted-date-time></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+        </template>
+        <template if:false={user}>
+            <div class="slds-text-align_center slds-box slds-theme_shade slds-theme_alert-texture">
+                <div class="slds-text-heading_large slds-var-p-around_medium">Nobody's in the room</div>
+            </div>
+        </template>
+</template>

@@ -1,0 +1,5 @@
+<apex:page controller="QuizControlller">
+    <apex:form >
+      <apex:outputText value="{!result}"/>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,17 @@
+<apex:page standardController="APEX_Customer__c" >
+    
+    <apex:form >
+        <apex:pageBlock title="Customer" mode="edit">       
+        	<apex:pageBlockButtons >
+            	<apex:commandButton value="Save" action="{!save}" />
+        	</apex:pageBlockButtons>
+        	<apex:pageBlockSection title="Customer Details" columns="2">
+    			<apex:inputField value="{!APEX_Customer__c.Name}"/>
+                <apex:inputField value="{!APEX_Customer__c.APEX_Active__c}"/>
+                <apex:inputField value="{!APEX_Customer__c.APEX_Customer_Description__c}"/>
+                <apex:inputField value="{!APEX_Customer__c.APEX_Customer_Status__c}"/>
+        	</apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+  
+</apex:page>
